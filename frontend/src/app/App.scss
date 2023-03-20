@@ -1,0 +1,39 @@
+html, body, #root {
+  height: 100%;
+}
+
+.odh-dashboard {
+  &__page-content {
+    border: 1px solid var(--pf-global--BorderColor--100);
+    display: flex;
+    flex: 1;
+    margin: var(--pf-global--spacer--md);
+  }
+  .pf-c-app-launcher__group-title {
+    font-size: 13px;
+  }
+  .pf-c-app-launcher__menu-item-external-icon {
+    opacity: 1;
+    color: var(--pf-global--icon--Color--light);
+  }
+  &__brand {
+    height: 36px;
+    width: 100%;
+  }
+}
+// specificity targeting form elements to override --pf-global--FontSize--md
+.pf-c-page, .pf-c-modal-box {
+  .pf-c-app-launcher,
+  .pf-c-button,
+  .pf-c-dropdown,
+  .pf-c-dropdown__menu-item,
+  .pf-c-dropdown__toggle,
+  .pf-c-select,
+  .pf-c-select__menu-item,
+  .pf-c-select__toggle,
+  .pf-c-text-input-group,
+  .pf-c-form-control {
+    font-size: var(--pf-global--FontSize--sm);
+    height: auto;
+  }
+}
