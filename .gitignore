@@ -150,4 +150,3 @@ bundle_tmp*
 !*.gitkeep
 !*/bundle/template
 index_tmp_*
-.github/workflows/*
