@@ -1,10 +1,7 @@
-name: Docker Image CI
+name: Auto Merge
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  repository_dispatch:
 
 jobs:
 
@@ -13,6 +10,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: main             # set the branch to merge to
+          fetch-depth: 0
+      - name: Merge Upstream
+        uses: exions/merge-upstream@v1
+        with:
+          upstream: dchourasiaorg/upstream-1      # set the upstream repo
+          upstream-branch: main   # set the upstream branch to merge from
+          branch: main          # set the branch to merge to
