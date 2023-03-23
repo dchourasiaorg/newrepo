@@ -15,9 +15,10 @@ jobs:
         with:
           ref: main             # set the branch to merge to
           fetch-depth: 0
-      - name: Merge Upstream
-        uses: exions/merge-upstream@v1
+      - name: GitHub Sync to Upstream Repository
+        uses: rovast/sync-upstream-repo@v0.0.1
         with:
-          upstream: dchourasiaorg/upstream-1      # set the upstream repo
-          upstream-branch: main   # set the upstream branch to merge from
-          branch: main          # set the branch to merge to
+          upstream_repo: https://github.com/dchourasiaorg/upstream-1 # change this
+          upstream_branch: main # change this
+          downstream_branch: main # change this
+          token: ${{ secrets.PAT_TOKEN }}
