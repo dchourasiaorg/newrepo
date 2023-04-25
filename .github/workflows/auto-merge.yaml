@@ -1,0 +1,24 @@
+name: Auto Merge
+
+on:
+  repository_dispatch:
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: main             # set the branch to merge to
+          fetch-depth: 0
+      - name: GitHub Sync to Upstream Repository
+        uses: rovast/sync-upstream-repo@v0.0.1
+        with:
+          upstream_repo: https://github.com/dchourasiaorg/upstream-1 # change this
+          upstream_branch: main # change this
+          downstream_branch: main # change this
+          token: ${{ secrets.PAT_TOKEN }}
